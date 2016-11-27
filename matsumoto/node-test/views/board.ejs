@@ -1,0 +1,31 @@
+        <% layout('layout') %>
+        <p class="main-title"><%= title %></p>
+        <% if (messageList.length){ %>
+            <div class="white-bg">
+                <ul class="main-list">
+                    <% messageList.forEach(function(messageItem) { %>
+                        <li class="main-list__item">
+                            <div class="message">
+                                <% if (messageItem.image_path) { %>
+                              <a href="<%= messageItem.image_path %>" class="message__image" style="background-image: url(<%= messageItem.image_path %>);"></a>
+                               <% } %>
+                                <p class="message__title"><%= messageItem.message %></p>
+                                <p class="message__date"><%= messageItem.user_name %> <%= messageItem.created_at %></p>
+                            </div>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+        <% } %>
+        <form action="/boards/<%= board.board_id %>" method="post" enctype="multipart/form-data" class="board-form">
+            <input type="text" name="message" class="input" required>
+            <button type="submit" class="submit">投稿</button>
+            <div class="file-wrap">
+                画像を追加
+                <input type="file" name="image_file" class="file">
+            </div>
+        </form>
+        <a href="/" class="btn">トップへもどる</a>
+        <% if (typeof user !== 'undefined') { %>
+        <span class="login-user"><%= user.user_name %>さんとしてログインしています</span>
+        <% } %>

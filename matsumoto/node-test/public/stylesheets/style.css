@@ -1,0 +1,218 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*
+   Base
+*/
+
+html {
+    min-height: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    position: relative;
+    min-height: 100%;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.3;
+    word-wrap: break-word;
+    font-family: YuGothic, '游ゴシック', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    background-color: #fafafa;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+img {
+    vertical-align: middle;
+    -webkit-touch-callout: none;
+}
+ol, ul, li { list-style: none; }
+span, i { display: inline-block; }
+input, textarea, button {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    background-color: inherit;
+    color: inherit;
+    -webkit-appearance: none;
+}
+input:-webkit-autofill, textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+/*
+   Main
+*/
+
+.wrapper {
+    padding: 10px 10px 37px;
+}
+.main-title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.main-list__item {
+    margin-top: 10px;
+}
+.main-list__item:first-child {
+    margin-top: 0;
+}
+.board {
+    display: block;
+    padding: 10px;
+    border: 1px #ccc solid;
+    background-color: #fff;
+}
+.board__title {
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.board__date {
+    font-size: 12px;
+    color: #ccc;
+    text-align: right;
+}
+.white-bg {
+    padding: 10px;
+    border: 1px #ccc solid;
+    background-color: #fff;
+}
+.message__image {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 70px;
+    background-size: cover;
+    background-position: center;
+}
+.message__title {
+}
+.message__date {
+    font-size: 10px;
+    color: #ccc;
+    text-align: right;
+}
+.board-form {
+    margin: 20px 0;
+    text-align: center;
+}
+.login-user {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    font-size: 12px;
+    border: 1px #ccc solid;
+    background-color: #fff;
+}
+.input {
+    display: inline-block;
+    padding: 10px;
+    font-size: 12px;
+    vertical-align: middle;
+    border: 1px #ccc solid;
+    background-color: #fff;
+}
+.file-wrap {
+    position: relative;
+    padding: 10px 30px;
+    margin: 4px auto 0;
+    width: 200px;
+    overflow: hidden;
+    line-height: 1;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    vertical-align: middle;
+    border-radius: 5px;
+    background-color: #008b8b;
+    box-sizing: border-box;
+}
+.file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+.label {
+  width: 100px;
+}
+.btn {
+    display: inline-block;
+    padding: 5px;
+    margin: 10px 0 0 10px;
+    border: 1px #ccc solid;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.error {
+    padding: 10px;
+    margin: 0 10px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #F08080;
+}
+.submit {
+    display: inline-block;
+    padding: 7px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    vertical-align: middle;
+    border: 1px #ccc solid;
+    background-color: #fff;
+    -webkit-appearance: none;
+}

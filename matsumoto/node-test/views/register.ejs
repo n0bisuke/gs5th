@@ -1,0 +1,13 @@
+        <% layout('layout') %>
+        <p class="main-title"><%= title %></p>
+        <form action="/register" method="post" class="board-form">
+            <span class="label">ユーザー名</span><input type="text" name="user_name" class="input" required><br>
+            <span class="label">Eメール</span><input type="email" name="email" class="input" required><br>
+            <span class="label">パスワード</span><input type="password" name="password" class="input" required><br>
+            <br>
+            <button type="submit" class="submit">新規会員登録</button>
+        </form>
+        <% if (typeof emailExists !== 'undefined') { %>
+            <p class="error"><%= emailExists %></p>
+        <% } %>
+        <a href="/" class="btn">トップへもどる</a>
