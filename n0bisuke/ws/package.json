@@ -1,5 +1,5 @@
 {
-  "name": "nodegit-test",
+  "name": "ws",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,8 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0",
-    "node-uuid": "^1.4.7",
-    "nodegit": "^0.16.0"
+    "workshopper": "^2.7.0",
+    "workshopper-exercise": "^2.7.0"
   }
 }

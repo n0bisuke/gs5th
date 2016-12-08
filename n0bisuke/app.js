@@ -19,6 +19,5 @@ Git.Repository.open(PATH)
   .then(getMostRecentCommit)
   .then(getCommitMessage)
   .then((commit) => {
-    console.log(commit.message());
-    console.log(commit.author().name());
+    console.log(`最新は${commit.author().name()}さんのコミットです。 - ${commit.message()}`);
   });
