@@ -22,8 +22,8 @@ let options = {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json; charset=UTF-8',
-        'X-LINE-ChannelId': '1487951524',
-        'X-LINE-ChannelSecret': '90f9a130885aa25f87fea738e0b7ec83'
+        'X-LINE-ChannelId': '',
+        'X-LINE-ChannelSecret': ''
     }
 };
 

@@ -2,8 +2,8 @@
 
 const client = require('https');
 
-const LINE_CHANNEL_ID = `1487951524`;
-const LINE_CHANNEL_SECRET = `90f9a130885aa25f87fea738e0b7ec83`;
+const LINE_CHANNEL_ID = ``;
+const LINE_CHANNEL_SECRET = ``;
 // const HOST = `sandbox-api-pay.line.me`;
 const HOST = `api-pay.line.me`;
 // const PATH = `/v2/payments/request`;
