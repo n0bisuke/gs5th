@@ -8,6 +8,8 @@
 
 ## 大泉さん
 
+* URL: http://s-oizumi.sakura.ne.jp
+
 ## 松本さん
 
 ## 竹本さん
