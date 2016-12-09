@@ -12,5 +12,7 @@
 
 ## 竹本さん
 
+* URL: http://ttakemoto.sakura.ne.jp
+
 ## 今井さん
 
