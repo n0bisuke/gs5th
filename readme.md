@@ -6,7 +6,7 @@
 
 ## 中村さん
 
-* URL: http://yutanakamura.sakura.ne.jp/toppage_GP/top.html
+* URL: https://citygift-04.herokuapp.com/
 
 ## 大泉さん
 
