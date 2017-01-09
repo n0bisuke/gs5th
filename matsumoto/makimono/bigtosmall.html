@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>bigtosmall</title>
+    <style>
+        .makimono{
+            position: relative;
+            width: 100px;
+            margin: 50px auto 0;
+        }
+        .makimono_main{
+            /*width: 100px;*/
+            /*height: 400px;*/
+            background: -webkit-gradient(radial, 51% 48%, 0, 51% 48%, 122, color-stop(1.00, #D8D8D8), color-stop(0.00, #FFFFFF));
+            background: -webkit-radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            background: -moz-radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            background: -o-radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            background: -ms-radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            background: radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
+            animation-duration: 10s;
+            animation-name: show_main;
+        }
+        @keyframes show_main{
+            from{
+                width: 10px;
+                height: 40px;
+            }
+            to{
+                width: 100px;
+                height: 400px;
+            }
+        }
+        .makimono_top{
+            /*width: 30px;*/
+            /*height: 40px;*/
+            background: #8B8B8B;
+            border-radius: 10px;
+            position: absolute;
+            top: -20px;
+            left: 35px;
+            z-index: 1;
+            animation-duration: 10s;
+            animation-name: show_top;
+        }
+        @keyframes show_top{
+            from{
+                width: 3px;
+                height: 4px;
+                margin-right: 100%;
+            }
+            to{
+                width: 30px;
+                height: 40px;
+                margin-right: 0%;
+            }
+        }
+        .makimono_bottom{
+            width: 30px;
+            height: 40px;
+            background: #8B8B8B;
+            border-radius: 10px;
+            position: absolute;
+            top: 380px;
+            left: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="makimono">
+    <div class="makimono_top"></div>
+    <div class="makimono_main"></div>
+    <div class="makimono_bottom"></div>
+    </div>
+</body>
+</html>

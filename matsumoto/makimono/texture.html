@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Three.js Practice</title>
+</head>
+<body>
+    <div id="stage"></div>
+    <script src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script>
+    (function(){
+        'use strict';
+        
+        var scene;
+        var box;
+        var camera;
+        var renderer;
+        var width = 500;
+        var height = 250;
+        var controls;
+        var loader;
+        
+        //scene ステージ
+        scene = new THREE.Scene();
+        
+        //camera
+        camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
+        camera.position.set(200, 100, 300);
+        camera.lookAt(scene.position);
+        
+        //controls
+        controls = new THREE.OrbitControls(camera);
+        
+        //renderer
+        renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize(width, height);
+        renderer.setClearColor('#efefef');//背景色
+        renderer.setPixelRatio(window.devicePixelRatio);//解像度の高いディスプレイ対応
+        document.getElementById('stage').appendChild(renderer.domElement);
+        
+        //texture
+        loader = new THREE.TextureLoader();
+        loader.load('img/logo.png', function(texture){
+            createBox(texture);
+            render();
+        });
+        
+        function createBox(texture){
+            box = new THREE.Mesh(
+                new THREE.BoxGeometry(150,150,150),
+                new THREE.MeshBasicMaterial({map: texture})
+            );
+            box.position.set(0,0,0);
+            scene.add(box);
+        }
+        
+        function render(){
+            requestAnimationFrame(render);
+            
+            controls.update();
+            renderer.render(scene, camera);
+        }
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Makimono</title>
+</head>
+<body>
+    <div id="stage"></div>
+    <script src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script>
+    (function(){
+        'use strict'
+        
+        var scene;
+        var makimono;
+        var body;
+        var top;
+        var bottom;
+        var right;
+        var paper;
+        var paperout;
+        var paperin;
+        
+        var light;
+        var ambient;
+        var camera;
+        var gridhelper;
+        var axishelper;
+        var lighthelper;
+        var renderer;
+        var width = 800;
+        var height = 500;
+        var theta = 0;
+        var controls;
+        var shadowHelper;
+        
+        var message;
+        var loader;
+        
+        //scene
+        scene = new THREE.Scene();
+        
+        //mesh
+        body = new THREE.Mesh(
+            new THREE.CylinderGeometry(30,30,200,50),
+            new THREE.MeshPhongMaterial({color:'#AA1E2B'})
+            //new THREE.MeshPhongMaterial({color:'#AA1E2B', wireframe: true})
+        );
+        body.position.set(-150,0,0);
+        
+        top = new THREE.Mesh(
+            new THREE.CylinderGeometry(10,10,10,50),
+            new THREE.MeshPhongMaterial({color:'#E7C052'})
+        );
+        top.position.set(-150,105,0);
+        
+        bottom = new THREE.Mesh(
+            new THREE.CylinderGeometry(10,10,10,50),
+            new THREE.MeshPhongMaterial({color:'#E7C052'})
+        );
+        bottom.position.set(-150,-105,0);
+        
+        makimono = new THREE.Group();
+        makimono.add(body);
+        makimono.add(top);
+        makimono.add(bottom);
+        scene.add(makimono);
+        
+        right = new THREE.Mesh(
+            new THREE.CylinderGeometry(5,5,220,50),
+            new THREE.MeshPhongMaterial({color:'#D2B24B'})
+        );
+        right.position.set(-125,0,0);
+        scene.add(right);
+        
+        paperout = new THREE.Mesh(
+            new THREE.PlaneGeometry(1,200),
+            new THREE.MeshLambertMaterial({color: '#AA1E2B', side: THREE.DoubleSide})
+        );
+        paperout.position.set(-150,0,0);
+        
+        paperin = new THREE.Mesh(
+            new THREE.PlaneGeometry(1,180),
+            new THREE.MeshLambertMaterial({color: '#FEF3A6', side: THREE.DoubleSide})
+        );
+        paperin.position.set(-150,0,1);
+        
+        paper = new THREE.Group();
+        paper.add(paperout);
+        paper.add(paperin);
+        scene.add(paper);
+        
+        //texture
+        loader = new THREE.TextureLoader();
+        loader.load('test.png', function(texture){
+            createBox(texture);
+            render();
+        });
+        
+        function createBox(texture){
+            message = new THREE.Mesh(
+                new THREE.PlaneGeometry(50,50),
+                new THREE.MeshBasicMaterial({map: texture})
+            );
+            message.position.set(0,0,2);
+            scene.add(message);
+        }
+        
+        //light
+        light = new THREE.DirectionalLight('#EFEFEF', 1);
+        light.position.set(0, 100, 30);
+        scene.add(light);
+        ambient = new THREE.AmbientLight('#EFEFEF');
+        scene.add(ambient);
+        
+        //camera
+        camera = new THREE.PerspectiveCamera(45, width/height, 1, 1000);
+        camera.position.set(200, 100, 300);
+        camera.lookAt(scene.position);
+        
+        //helper
+        gridhelper = new THREE.GridHelper(200, 50);
+        scene.add(gridhelper);
+        axishelper = new THREE.AxisHelper(1000);
+        scene.add(axishelper);
+        //lighthelper = new THREE.DirectionalLightHelper(light, 20);
+        //scene.add(lighthelper);
+        
+        //controls
+        controls = new THREE.OrbitControls(camera);
+        
+        //renderer
+        renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize(width, height);
+        renderer.setClearColor('#ffffff');//背景色
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.getElementById('stage').appendChild(renderer.domElement);
+        
+        //shadow
+        renderer.shadowMap.enabled = true;
+        light.castShadow = true;
+        light.shadow.camera.left = -200;
+        light.shadow.camera.right = 200;
+        light.shadow.camera.top = 200;
+        light.shadow.camera.bottom = -200;
+        shadowHelper = new THREE.CameraHelper(light.shadow.camera);
+        makimono.castShadow = true;
+        
+        function render(){
+            requestAnimationFrame(render);
+            paperout.scale.x += 0.6;
+            paperout.position.x += 0.3;
+            if(paperout.position.x > 10){
+                paperout.scale.x -= 0.6;
+                paperout.position.x -= 0.3;
+            }
+            paperin.scale.x += 0.6;
+            paperin.position.x += 0.3;
+            if(paperin.position.x > 10){
+                paperin.scale.x -= 0.6;
+                paperin.position.x -= 0.3;
+            }
+            right.position.x += 0.1;
+            if(right.position.x > -120){
+                right.position.x += 0.5;
+            }
+            if(right.position.x > 170){
+                right.position.x -= 0.6;
+            }
+            if(body.scale.x > 0.466){
+                body.scale.x -= 0.001;
+                body.scale.z -= 0.001;
+            }
+            
+            controls.update();
+            renderer.render(scene, camera);
+            
+
+            
+        }
+        render();
+    })();
+    </script>
+</body>
+</html>

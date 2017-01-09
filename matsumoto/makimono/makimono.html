@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Makimono</title>
+</head>
+<body>
+    <div id="stage"></div>
+    <script src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script>
+    (function(){
+        'use strict'
+        
+        var scene;
+        var makimono;
+        var body;
+        var top;
+        var bottom;
+        var right;
+        var paper;
+        var paperout;
+        var paperin;
+        var light;
+        var ambient;
+        var camera;
+        var gridhelper;
+        var axishelper;
+        var lighthelper;
+        var renderer;
+        var width = 800;
+        var height = 500;
+        var theta = 0;
+        var controls;
+        var shadowHelper;
+        
+        //scene
+        scene = new THREE.Scene();
+        
+        //mesh
+        body = new THREE.Mesh(
+            new THREE.CylinderGeometry(20,20,200,50),
+            new THREE.MeshPhongMaterial({color:'#AA1E2B'})
+            //new THREE.MeshPhongMaterial({color:'#AA1E2B', wireframe: true})
+        );
+        body.position.set(-150,0,0);
+        
+        top = new THREE.Mesh(
+            new THREE.CylinderGeometry(10,10,10,50),
+            new THREE.MeshPhongMaterial({color:'#E7C052'})
+        );
+        top.position.set(-150,105,0);
+        
+        bottom = new THREE.Mesh(
+            new THREE.CylinderGeometry(10,5,10,50),
+            new THREE.MeshPhongMaterial({color:'#E7C052'})
+        );
+        bottom.position.set(-150,-105,0);
+        
+        makimono = new THREE.Group();
+        makimono.add(body);
+        makimono.add(top);
+        makimono.add(bottom);
+        scene.add(makimono);
+        
+        right = new THREE.Mesh(
+            new THREE.CylinderGeometry(5,5,220,50),
+            new THREE.MeshPhongMaterial({color:'#D2B24B'})
+        );
+        right.position.set(170,0,0);
+        scene.add(right);
+        
+        paperout = new THREE.Mesh(
+            new THREE.PlaneGeometry(300,200),
+            new THREE.MeshLambertMaterial({color: '#AA1E2B', side: THREE.DoubleSide})
+        );
+        paperout.position.set(20,0,0);
+        
+        paperin = new THREE.Mesh(
+            new THREE.PlaneGeometry(300,180),
+            new THREE.MeshLambertMaterial({color: '#FEF3A6', side: THREE.DoubleSide})
+        );
+        paperin.position.set(20,0,1);
+        
+        paper = new THREE.Group();
+        paper.add(paperout);
+        paper.add(paperin);
+        scene.add(paper);
+        
+        //light
+        light = new THREE.DirectionalLight('#EFEFEF', 1);
+        light.position.set(0, 100, 30);
+        scene.add(light);
+        ambient = new THREE.AmbientLight('#EFEFEF');
+        scene.add(ambient);
+        
+        //camera
+        camera = new THREE.PerspectiveCamera(45, width/height, 1, 1000);
+        camera.position.set(200, 100, 300);
+        camera.lookAt(scene.position);
+        
+        //helper
+        gridhelper = new THREE.GridHelper(200, 50);
+        scene.add(gridhelper);
+        axishelper = new THREE.AxisHelper(1000);
+        scene.add(axishelper);
+        //lighthelper = new THREE.DirectionalLightHelper(light, 20);
+        //scene.add(lighthelper);
+        
+        //controls
+        controls = new THREE.OrbitControls(camera);
+        
+        //renderer
+        renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize(width, height);
+        renderer.setClearColor('#ffffff');//背景色
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.getElementById('stage').appendChild(renderer.domElement);
+        
+        //shadow
+        renderer.shadowMap.enabled = true;
+        light.castShadow = true;
+        light.shadow.camera.left = -200;
+        light.shadow.camera.right = 200;
+        light.shadow.camera.top = 200;
+        light.shadow.camera.bottom = -200;
+        shadowHelper = new THREE.CameraHelper(light.shadow.camera);
+        makimono.castShadow = true;
+        
+        function render(){
+            requestAnimationFrame(render);
+            
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        render();
+    })();
+    </script>
+</body>
+</html>
