@@ -20,6 +20,10 @@
     "serve-favicon": "~2.3.0",
     "socket.io": "^1.6.0"
   },
+  "engines":{
+    "node": "5.5.0",
+    "npm": "3.6.0"
+  },
   "devDependencies": {
     "gulp": "^3.9.1"
   }

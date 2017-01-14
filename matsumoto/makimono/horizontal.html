@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>horizontal</title>
+    <style>
+        .main{
+            width: 750px;
+            margin: 50px auto 0 auto;
+            position: relative;
+        }
+        .main_left_axis_top{
+            width: 30px;
+            height: 40px;
+            background: #8B8B8B;
+            border-radius: 10px;
+            position: absolute;
+            top:-20px;
+            left: 15px;
+            transform: rotate(-5deg);
+            z-index: 2;
+        }
+        .main_left_axis_bottom{
+            width: 30px;
+            height: 40px;
+            background: #8B8B8B;
+            border-radius: 10px;
+            position: absolute;
+            top:385px;
+            left: 50px;
+            transform: rotate(-5deg);
+            z-index: 3;
+        }
+        .main_right_axis_top{
+            width: 30px;
+            height: 40px;
+            background: #8B8B8B;
+            border-radius: 10px;
+            position: absolute;
+            top:-20px;
+            left: 695px;
+            transform: rotate(-5deg);
+            z-index: 2;
+        }
+        .main_right_axis_bottom{
+            width: 30px;
+            height: 40px;
+            background: #8B8B8B;
+            border-radius: 10px;
+            position: absolute;
+            top:385px;
+            left: 730px;
+            transform: rotate(-5deg);
+            z-index: 3;
+        }
+        .main_left{
+            width: 100px;
+            height: 400px;
+            background: -webkit-gradient(radial, 51% 48%, 0, 51% 48%, 122, color-stop(1.00, #D8D8D8), color-stop(0.00, #FFFFFF));
+            background: -webkit-radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            background: -moz-radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            background: -o-radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            background: -ms-radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            background: radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            border-radius: 10px;
+            transform: rotate(-5deg);
+            position: absolute;
+            z-index: 4;
+        }
+        .main_right{
+            width: 100px;
+            height: 400px;
+            background: -webkit-gradient(radial, 51% 48%, 0, 51% 48%, 122, color-stop(1.00, #D8D8D8), color-stop(0.00, #FFFFFF));
+            background: -webkit-radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            background: -moz-radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            background: -o-radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            background: -ms-radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            background: radial-gradient(51% 48%, circle, #FFFFFF, #D8D8D8);
+            border-radius: 10px;
+            transform: rotate(-5deg);
+            position: absolute;
+            left: 680px;
+            top: 0px;
+            z-index: 5;
+        }
+        .main_contents{
+            width: 700px;
+            height: 390px;
+            background: #FDF6F6;
+            position: absolute;
+            left: 40px;
+            top: 6px;
+            z-index: 1;
+        }
+        .main_contents_text{
+            writing-mode: vertical-rl;
+            -ms-writing-mode: tb-rl;
+            -webkit-writing-mode:vertical-rl;
+            text-align: right;
+            position: absolute;
+            background: #FFFFFF;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 600px;
+            padding: 20px;
+            overflow-y: scroll;
+            position: absolute;
+            left: 0;
+        }
+        .main_contents_text p{
+            transform: rotate(-5deg);
+            font-size: 15px;
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="main_left_axis_top"></div>
+        <div class="main_left"></div>
+        <div class="main_left_axis_bottom"></div>
+        <div class="main_contents">
+            <div class="main_contents_text">
+            <p>二十億光年の孤独</p>
+            <p>谷川俊太郎</p>
+            <p>人類は小さな球の上で<br>
+            眠り起きそして働き<br>
+            ときどき火星に仲間を欲しがったりする</p>
+            <p>火星人は小さな球の上で<br>
+            何をしてるか　僕は知らない<br>
+            （或いは　ネリリし　キルルし　ハララしているか）<br>
+            しかしときどき地球に仲間を欲しがったりする<br>
+            それはまったくたしかなことだ</p>
+            <p>万有引力とは<br>
+            ひき合う孤独の力である</p>
+            <p>宇宙はひずんでいる<br>
+            それ故みんなはもとめ合う</p>
+            <p>宇宙はどんどん膨らんでゆく<br>
+            それ故みんなは不安である</p>
+            <p>二十億光年の孤独に<br>
+            僕は思わずくしゃみをした</p>
+            </div>
+        </div>
+        <div class="main_right_axis_top"></div>
+        <div class="main_right"></div>
+        <div class="main_right_axis_bottom"></div>
+    </div>
+</body>
+</html>
