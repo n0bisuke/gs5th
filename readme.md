@@ -18,7 +18,7 @@
 
 ## 竹本さん
 
-* URL: http://ttakemoto.sakura.ne.jp
+* URL: http://ec2-35-161-110-13.us-west-2.compute.amazonaws.com/
 
 ## 今井さん
 * URL: http://scip.sakura.ne.jp/
